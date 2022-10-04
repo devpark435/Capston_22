@@ -82,7 +82,7 @@ class _MainPageState extends State<MainPage> {
                         //         context,
                         //         MaterialPageRoute(
                         //             builder: (context) =>
-                        //                 ComparePage(title: 'ComparePage')));
+                        //                 ChartPage(title: 'ChartPage')));
                         //   },
                         child: ListBox(),
                       ),
