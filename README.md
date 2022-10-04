@@ -3,8 +3,8 @@
 
 ## Project Member
 - Hyunryoel Park [UI/UX][Front-End]
+- Jinmo Chae [Research][Front-End]
 - Jiwon Choi [Speaker][Back-End]
--
 -
 
 ## Dev Environment
