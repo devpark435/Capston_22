@@ -2,8 +2,8 @@
 2022 Capston_Design Project
 
 ## Project Member
-- Hyunryoel Park[UI/UX][Front]
--
+- Hyunryoel Park [UI/UX][Front-End]
+- Jiwon Choi [Speaker][Back-End]
 -
 -
 
