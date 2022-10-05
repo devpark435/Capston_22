@@ -88,7 +88,7 @@ class _ListPageState extends State<ListPage> {
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

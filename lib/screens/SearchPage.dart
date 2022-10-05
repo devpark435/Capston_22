@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stock_flutter_app/widgets/customWidget.dart';
 import '../asset/palette.dart';
 
 class SearchPage extends StatefulWidget {
