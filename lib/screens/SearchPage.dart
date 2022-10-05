@@ -27,6 +27,40 @@ class _SearchPage extends State<SearchPage> {
               child: Text(
                 "Stock Application",
               ),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.9,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Palette.bgColor,
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 4,
+                      color: Palette.containerShadow,
+                      offset: Offset(0, 2),
+                    )
+                  ],
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                alignment: AlignmentDirectional(0, 0),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                      child: TextField(
+                          keyboardType: TextInputType.text,
+                          autofocus: true,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            hintText: 'Search...',
+                          )),
+                    ),
+                    Icon(Icons.search)
+                  ],
+                ),
+              ),
             )
           ]),
     );
