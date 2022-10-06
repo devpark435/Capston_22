@@ -8,14 +8,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:capston_22/main.dart';
-import 'package:capston_22/login.dart';
 import 'package:capston_22/Mainpage.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const Login());
+    await tester.pumpWidget(const Mainpage());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

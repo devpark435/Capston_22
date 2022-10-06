@@ -1,6 +1,6 @@
+import 'package:capston_22/main_page.dart';
 import 'package:flutter/material.dart';
-import 'login.dart';
 
 void main() {
-  runApp(Login());
+  runApp(Mainpage());
 }

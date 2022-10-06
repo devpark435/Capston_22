@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
-import 'Mainpage.dart';
+import 'main_page.dart';
 
-class Login extends StatelessWidget {
-  const Login({Key? key}) : super(key: key);
+// class Login extends StatelessWidget {
+//   const Login({Key? key}) : super(key: key);
 
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: LoginPage(),
+//     );
+//   }
+// }
+
+class LoginPage extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: LoginDemo(),
-    );
-  }
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class LoginDemo extends StatefulWidget {
-  @override
-  _LoginDemoState createState() => _LoginDemoState();
-}
-
-class _LoginDemoState extends State<LoginDemo> {
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,18 +30,14 @@ class _LoginDemoState extends State<LoginDemo> {
         child: Column(
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.only(top: 60.0),
+              padding: const EdgeInsets.only(top: 60.0, bottom: 60),
               child: Center(
                 child: Container(
                   width: 200,
                   height: 150,
-                  /*decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(50.0)),*/
-                  child: Text(
-                    'Logo',
-                    style: TextStyle(fontSize: 30),
-                  ),
+                  decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(50.0)),
                 ),
               ),
             ),
@@ -69,7 +65,7 @@ class _LoginDemoState extends State<LoginDemo> {
             ),
             TextButton(
               onPressed: () {
-                //TODO FORGOT PASSWORD SCREEN GOES HERE
+                //패스워드 찾기 구현
               },
               child: Text(
                 '비밀번호 찾기',
@@ -81,9 +77,9 @@ class _LoginDemoState extends State<LoginDemo> {
               width: 250,
               decoration: BoxDecoration(
                   color: Colors.blue, borderRadius: BorderRadius.circular(20)),
-              child: TextButton(
+              child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.pop(
                       context, MaterialPageRoute(builder: (_) => MainPage()));
                 },
                 child: Text(
