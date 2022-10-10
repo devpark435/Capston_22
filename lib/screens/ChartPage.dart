@@ -9,9 +9,12 @@ class ChartPage extends StatefulWidget {
 }
 
 class _ChartPage extends State<ChartPage> {
+  String Buying = '';
+  String selling = ' ';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Palette.bgColor,
         appBar: AppBar(
           iconTheme: IconThemeData(color: Palette.containerShadow),
@@ -95,21 +98,108 @@ class _ChartPage extends State<ChartPage> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Container(
-                  margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  height: MediaQuery.of(context).size.height * 0.1,
-                  decoration: BoxDecoration(
-                    color: Palette.bgColor,
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 4,
-                        color: Palette.containerColor,
-                        offset: Offset(0, 5),
-                      )
-                    ],
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                )
+                    margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    height: MediaQuery.of(context).size.height * 0.1,
+                    decoration: BoxDecoration(
+                      color: Palette.bgColor,
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 4,
+                          color: Palette.containerColor,
+                          offset: Offset(0, 5),
+                        )
+                      ],
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text("InvestmentGame"),
+                        IconButton(
+                          icon: const Icon(Icons.attach_money),
+                          color: Palette.moneyColor,
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                barrierDismissible: true,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    alignment: Alignment.center,
+                                    title: Text("매수"),
+                                    backgroundColor: Palette.containerColor,
+                                    content: SingleChildScrollView(
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          TextField(
+                                            onTap: () {
+                                              FocusScope.of(context).unfocus();
+                                            },
+                                            onChanged: (text) {
+                                              setState(() {
+                                                Buying = text;
+                                              });
+                                            },
+                                            obscureText: false,
+                                            decoration: InputDecoration(
+                                              border: InputBorder.none,
+                                              labelText: '몇 주를 매수하시겠습니까?',
+                                            ),
+                                            keyboardType: TextInputType.number,
+                                          ),
+                                          Text(Buying + "주를 매수합니다.")
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                });
+                          },
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.money_off_csred),
+                          color: Palette.moneyOffColor,
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                barrierDismissible: true,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    alignment: Alignment.center,
+                                    title: Text("매도"),
+                                    backgroundColor: Palette.containerColor,
+                                    content: SingleChildScrollView(
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          TextField(
+                                            onTap: () {
+                                              FocusScope.of(context).unfocus();
+                                            },
+                                            onChanged: (text) {
+                                              setState(() {
+                                                selling = text;
+                                              });
+                                            },
+                                            obscureText: false,
+                                            decoration: InputDecoration(
+                                              border: InputBorder.none,
+                                              labelText: '몇 주를 매도하시겠습니까?',
+                                            ),
+                                            keyboardType: TextInputType.number,
+                                          ),
+                                          Text(selling + "주를 매도합니다."),
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                });
+                          },
+                        )
+                      ],
+                    ))
               ],
             ),
           ]),
