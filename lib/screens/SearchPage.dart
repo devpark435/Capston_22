@@ -13,56 +13,88 @@ class _SearchPage extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Palette.bgColor,
-      body: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 80,
-              decoration: BoxDecoration(
-                color: Palette.bgColor,
-              ),
-              child: Text(
-                "Stock Application",
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
-              child: Container(
-                width: MediaQuery.of(context).size.width * 0.9,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Palette.bgColor,
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 4,
-                      color: Palette.containerShadow,
-                      offset: Offset(0, 2),
-                    )
-                  ],
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                alignment: AlignmentDirectional(0, 0),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                      child: TextField(
-                          keyboardType: TextInputType.text,
-                          autofocus: true,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            hintText: 'Search...',
-                          )),
-                    ),
-                    Icon(Icons.search)
-                  ],
-                ),
-              ),
-            )
-          ]),
-    );
+        backgroundColor: Palette.bgColor,
+        body: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Container(
+                  width: double.infinity,
+                  height: 50,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      border: Border.all(color: Colors.black12, width: 3)),
+                  child: Text('Investment Game', textAlign: TextAlign.center)),
+              Container(
+                  width: double.infinity,
+                  height: 200,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      border: Border.all(color: Colors.black12, width: 3)),
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        'profile.jpg',
+                        width: 100,
+                      ),
+                      Container(
+                          child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('name:'),
+                          Text('Email:'),
+                        ],
+                      ))
+                    ],
+                  )),
+              Container(
+                  width: double.infinity,
+                  height: 200,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      border: Border.all(color: Colors.black12, width: 3)),
+                  child: Row(
+                    children: [
+                      Icon(Icons.bar_chart),
+                      Container(
+                          child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Ready money:'),
+                          Text('Total assets:'),
+                          Text('Profit:'),
+                        ],
+                      )),
+                      Container(
+                          child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('100,000원'),
+                          Text('100,000원'),
+                          Text('0.2%'),
+                        ],
+                      ))
+                    ],
+                  )),
+              Container(
+                  width: double.infinity,
+                  height: 50,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      border: Border.all(color: Colors.black12, width: 3)),
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        'kakao.jpg',
+                        width: 50,
+                      ),
+                      Text('kakao'),
+                      Text('0.2%'),
+                    ],
+                  )),
+            ]));
   }
 }

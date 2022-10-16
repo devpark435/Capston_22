@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../widgets/customWidget.dart';
-import 'package:flutter/material.dart';
 import '../asset/palette.dart';
 import '../screens/ChartPage.dart';
 
