@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../asset/palette.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
 class ChartPage extends StatefulWidget {
   const ChartPage({super.key, required this.title});
@@ -13,6 +14,12 @@ class _ChartPage extends State<ChartPage> {
   String selling = ' ';
   @override
   Widget build(BuildContext context) {
+    List<_SalesData> data = [
+      _SalesData('3', 5000),
+      _SalesData('2', 5200),
+      _SalesData('1', 5300),
+      _SalesData('0', 5400)
+    ];
     return Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Palette.bgColor,
@@ -67,7 +74,28 @@ class _ChartPage extends State<ChartPage> {
                     ),
                     child: Column(children: [
                       Padding(padding: EdgeInsets.fromLTRB(0, 20, 0, 0)),
-                      Container()
+                      Container(
+                        child: SfCartesianChart(
+                            primaryXAxis: CategoryAxis(),
+                            // Chart title
+                            title: ChartTitle(text: 'STOCK CHART'),
+                            // Enable legend
+                            legend: Legend(isVisible: false),
+                            // Enable tooltip
+                            tooltipBehavior: TooltipBehavior(enable: true),
+                            series: <ChartSeries<_SalesData, String>>[
+                              LineSeries<_SalesData, String>(
+                                  dataSource: data,
+                                  xValueMapper: (_SalesData sales, _) =>
+                                      sales.year,
+                                  yValueMapper: (_SalesData sales, _) =>
+                                      sales.sales,
+                                  name: 'Sales',
+                                  // Enable data label
+                                  dataLabelSettings:
+                                      DataLabelSettings(isVisible: true)),
+                            ]),
+                      )
                     ]))
               ],
             ),
@@ -205,4 +233,11 @@ class _ChartPage extends State<ChartPage> {
           ]),
         ));
   }
+}
+
+class _SalesData {
+  _SalesData(this.year, this.sales);
+
+  final String year;
+  final int sales;
 }
