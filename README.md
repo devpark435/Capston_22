@@ -12,4 +12,9 @@
   - VS Code, 
 - Language
   - Flutter3, 
+  
+## Dev Diary
+### Front
+- ChartPage.dart
+  - Add SFChart [10/17/2022] 
 
