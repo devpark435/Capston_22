@@ -1,3 +1,6 @@
+import 'dart:ffi';
+import 'ChartPage.dart';
+import 'ListPage.dart';
 import 'package:flutter/material.dart';
 import 'package:stock_flutter_app/widgets/customWidget.dart';
 import '../asset/palette.dart';
@@ -10,6 +13,7 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPage extends State<SearchPage> {
+  int searchText = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,6 +21,7 @@ class _SearchPage extends State<SearchPage> {
       body: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
               width: MediaQuery.of(context).size.width,
@@ -46,18 +51,38 @@ class _SearchPage extends State<SearchPage> {
                 ),
                 alignment: AlignmentDirectional(0, 0),
                 child: Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Container(
+                      alignment: Alignment.center,
+                      width: 200,
+                      decoration: BoxDecoration(color: Palette.bgColor),
+                      margin: EdgeInsets.all(10),
                       child: TextField(
-                          keyboardType: TextInputType.text,
-                          autofocus: true,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            hintText: 'Search...',
-                          )),
+                        onSubmitted: (text) {
+                          setState(() {
+                            searchText = int.parse(text);
+                          });
+                        },
+                      ),
                     ),
-                    Icon(Icons.search)
+                    Container(
+                      margin: EdgeInsets.all(10),
+                      child: IconButton(
+                        icon: Icon(Icons.search),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ChartPage(
+                                        title: 'ComparePage',
+                                        items: items[searchText],
+                                        logos: logos[searchText],
+                                        rates: rates[searchText],
+                                      )));
+                        },
+                      ),
+                    )
                   ],
                 ),
               ),

@@ -37,7 +37,7 @@ class _MarketPageState extends State<MarketPage> {
   final List<Widget> _widgetOptions = <Widget>[
     ListPage(title: "title"),
     SearchPage(title: "title"),
-    ChartPage(title: "title")
+    // ChartPage(title: "title",items: ,)
   ];
 
   void _onItemTapped(int index) {

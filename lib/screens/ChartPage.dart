@@ -3,8 +3,17 @@ import '../asset/palette.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class ChartPage extends StatefulWidget {
-  const ChartPage({super.key, required this.title});
+  const ChartPage({
+    super.key,
+    required this.title,
+    required this.items,
+    required this.logos,
+    required this.rates,
+  });
   final String title;
+  final String items;
+  final Widget logos;
+  final String rates;
   @override
   State<ChartPage> createState() => _ChartPage();
 }
@@ -29,29 +38,74 @@ class _ChartPage extends State<ChartPage> {
           centerTitle: false,
           elevation: 0,
           actions: [],
+          title: Text(widget.items),
+          // title: Container(
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+          //     children: [
+          //       Text(widget.logos),
+          //       Text(widget.items),
+          //       Text(widget.rates),
+          //     ],
+          //   ),
+          // ),
         ),
         body: SafeArea(
           child: Column(children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                    // ItmeNameContainer
-                    margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                    width: MediaQuery.of(context).size.width * 0.9,
-                    height: MediaQuery.of(context).size.height * 0.1,
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: [
+            //     Container(
+            //         // ItmeNameContainer
+            //         margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+            //         width: MediaQuery.of(context).size.width * 0.9,
+            //         height: MediaQuery.of(context).size.height * 0.1,
+            //         decoration: BoxDecoration(
+            //           color: Palette.bgColor,
+            //           boxShadow: [
+            //             BoxShadow(
+            //               blurRadius: 4,
+            //               color: Palette.containerColor,
+            //               offset: Offset(0, 5),
+            //             )
+            //           ],
+            //           borderRadius: BorderRadius.circular(15),
+            //         ))
+            //   ],
+            // ),
+            Container(
+              // ItmeNameContainer
+              margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+              width: MediaQuery.of(context).size.width * 0.9,
+              height: MediaQuery.of(context).size.height * 0.1,
+              decoration: BoxDecoration(
+                color: Palette.bgColor,
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 4,
+                    color: Palette.containerColor,
+                    offset: Offset(0, 5),
+                  )
+                ],
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Container(
+                    width: 50,
+                    height: 50,
                     decoration: BoxDecoration(
-                      color: Palette.bgColor,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 4,
-                          color: Palette.containerColor,
-                          offset: Offset(0, 5),
-                        )
-                      ],
-                      borderRadius: BorderRadius.circular(15),
-                    ))
-              ],
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                            fit: BoxFit.fill,
+                            image: AssetImage(
+                                '/Users/ryeol/Desktop/logoKakao.png'))),
+                  ),
+                  Text(widget.items),
+                  Text(widget.rates),
+                ],
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

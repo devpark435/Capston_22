@@ -4,6 +4,11 @@ import 'package:flutter/material.dart';
 import '../asset/palette.dart';
 import '../screens/ChartPage.dart';
 
+var items = List<String>.generate(50, (i) => "ItemName $i");
+var logos = List<Widget>.generate(
+    50, (i) => Image.asset('/Users/ryeol/Desktop/logoKakao.png'));
+var rates = List<String>.generate(50, (i) => "Rate $i");
+
 class ListPage extends StatefulWidget {
   const ListPage({super.key, required this.title});
   final String title;
@@ -51,18 +56,65 @@ class _ListPageState extends State<ListPage> {
             Tab(
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
-                child: ListView(
-                  scrollDirection: Axis.vertical,
-                  padding: EdgeInsets.zero,
-                  children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                      child: GestureDetector(
-                        child: ListBox(),
-                      ),
-                    ),
-                  ],
-                ),
+                child: ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    padding: EdgeInsets.zero,
+                    itemCount: items == null ? 0 : items.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      var itemDatas = items![index];
+                      var logoDatas = logos![index];
+                      var rateDatas = rates![index];
+                      return SizedBox(
+                        height: 80,
+                        child: Card(
+                          shadowColor: Palette.containerShadow,
+                          // color: Palette.containerColor,
+                          elevation: 3,
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ChartPage(
+                                            title: 'ComparePage',
+                                            items: itemDatas,
+                                            logos: logoDatas,
+                                            rates: rateDatas,
+                                          )));
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Container(
+                                  width: 50,
+                                  height: 50,
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      image: DecorationImage(
+                                          fit: BoxFit.fill,
+                                          image: AssetImage(
+                                              '/Users/ryeol/Desktop/logoKakao.png'))),
+                                ),
+                                Text(itemDatas),
+                                Text(rateDatas)
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
+                // child: ListView(
+                //   scrollDirection: Axis.vertical,
+                //   padding: EdgeInsets.zero,
+                //   children: [
+                //     Padding(
+                //       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                //       child: GestureDetector(
+                //         child: ListBox(),
+                //       ),
+                //     ),
+                //   ],
+                // ),
               ),
             ),
             Tab(
@@ -75,15 +127,15 @@ class _ListPageState extends State<ListPage> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                       child: GestureDetector(
-                        //   onTap: () {
-                        //     Navigator.push(
-                        //         context,
-                        //         MaterialPageRoute(
-                        //             builder: (context) =>
-                        //                 ChartPage(title: 'ChartPage')));
-                        //   },
-                        child: ListBox(),
-                      ),
+                          //   onTap: () {
+                          //     Navigator.push(
+                          //         context,
+                          //         MaterialPageRoute(
+                          //             builder: (context) =>
+                          //                 ChartPage(title: 'ChartPage')));
+                          //   },
+                          // child: ListBox(),
+                          ),
                     ),
                   ],
                 ),
