@@ -79,6 +79,7 @@ class _SearchPage extends State<SearchPage> {
                                         items: items[searchText],
                                         logos: logos[searchText],
                                         rates: rates[searchText],
+                                        prices: price[searchText],
                                       )));
                         },
                       ),

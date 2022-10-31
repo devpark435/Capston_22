@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stock_flutter_app/screens/ChartPage.dart';
 import '/screens/ListPage.dart';
 import './screens/SearchPage.dart';
+import 'screens/loginPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,7 +38,7 @@ class _MarketPageState extends State<MarketPage> {
   final List<Widget> _widgetOptions = <Widget>[
     ListPage(title: "title"),
     SearchPage(title: "title"),
-    // ChartPage(title: "title",items: ,)
+    LoginPage(title: "title")
   ];
 
   void _onItemTapped(int index) {

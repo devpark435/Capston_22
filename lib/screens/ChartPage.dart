@@ -9,11 +9,13 @@ class ChartPage extends StatefulWidget {
     required this.items,
     required this.logos,
     required this.rates,
+    required this.prices,
   });
   final String title;
   final String items;
   final Widget logos;
   final String rates;
+  final String prices;
   @override
   State<ChartPage> createState() => _ChartPage();
 }
@@ -103,7 +105,10 @@ class _ChartPage extends State<ChartPage> {
                                 '/Users/ryeol/Desktop/logoKakao.png'))),
                   ),
                   Text(widget.items),
-                  Text(widget.rates),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [Text(widget.prices), Text(widget.rates)],
+                  ),
                 ],
               ),
             ),

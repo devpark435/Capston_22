@@ -8,6 +8,7 @@ var items = List<String>.generate(50, (i) => "ItemName $i");
 var logos = List<Widget>.generate(
     50, (i) => Image.asset('/Users/ryeol/Desktop/logoKakao.png'));
 var rates = List<String>.generate(50, (i) => "Rate $i");
+var price = List<String>.generate(50, (i) => "Price $i");
 
 class ListPage extends StatefulWidget {
   const ListPage({super.key, required this.title});
@@ -64,6 +65,7 @@ class _ListPageState extends State<ListPage> {
                       var itemDatas = items![index];
                       var logoDatas = logos![index];
                       var rateDatas = rates![index];
+                      var priceDatas = price![index];
                       return SizedBox(
                         height: 80,
                         child: Card(
@@ -76,11 +78,11 @@ class _ListPageState extends State<ListPage> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => ChartPage(
-                                            title: 'ComparePage',
-                                            items: itemDatas,
-                                            logos: logoDatas,
-                                            rates: rateDatas,
-                                          )));
+                                          title: 'ComparePage',
+                                          items: itemDatas,
+                                          logos: logoDatas,
+                                          rates: rateDatas,
+                                          prices : priceDatas)));
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -90,13 +92,24 @@ class _ListPageState extends State<ListPage> {
                                   height: 50,
                                   decoration: BoxDecoration(
                                       shape: BoxShape.circle,
-                                      image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              '/Users/ryeol/Desktop/logoKakao.png'))),
+                                      color: Palette.containerColor),
+                                  // decoration: BoxDecoration(
+                                  //   shape: BoxShape.circle,
+                                  // image: DecorationImage(
+                                  //     fit: BoxFit.fill,
+                                  //     image: Image.asset('${logoDatas}')
+                                  //     // image: AssetImage(
+                                  //     //     '/Users/ryeol/Desktop/logoKakao.png')
+                                  //         )
+                                  // ),
+                                  // child: logoDatas,
                                 ),
                                 Text(itemDatas),
-                                Text(rateDatas)
+                                Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [Text(priceDatas), Text(rateDatas)],
+                                ),
                               ],
                             ),
                           ),
