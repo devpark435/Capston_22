@@ -164,12 +164,33 @@ class _SignupPage extends State<SignupPage> {
                     decoration: BoxDecoration(
                         color: Palette.containerColor,
                         borderRadius: BorderRadius.circular(15)),
-                    child: Text(
-                      'SignUp',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
+                    child: GestureDetector(
+                      child: Text(
+                        'SignUp',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      onTap: () {
+                        showDialog(
+                            context: context,
+                            builder: ((context) {
+                              return AlertDialog(
+                                title: const Text('SignUP Data'),
+                                content: SingleChildScrollView(
+                                  child: ListBody(
+                                    children: [
+                                      Text('ID : ${signID}'),
+                                      Text('PW : ${signPW}'),
+                                      Text('Check PW : ${checkPW}'),
+                                      Text('E-Mail : ${signEM}')
+                                    ],
+                                  ),
+                                ),
+                              );
+                            }));
+                      },
                     ),
                   ),
                   Container(
