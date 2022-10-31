@@ -187,9 +187,6 @@ class _SignupPage extends State<SignupPage> {
                             fontSize: 20,
                             fontWeight: FontWeight.bold),
                       ),
-                      // onTap: () {
-                      //   Navigator.push(context, MaterialPageRoute(builder: (context)=>  ));
-                      // },
                     ),
                   )
                 ],
