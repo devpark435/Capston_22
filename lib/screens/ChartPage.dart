@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:stock_flutter_app/screens/loginPage.dart';
+import 'package:stock_flutter_app/screens/newsPage.dart';
 import '../asset/palette.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -39,18 +41,22 @@ class _ChartPage extends State<ChartPage> {
           backgroundColor: Palette.containerColor,
           centerTitle: false,
           elevation: 0,
-          actions: [],
+          actions: [
+            new IconButton(
+              icon: new Icon(Icons.newspaper),
+              tooltip: 'NewsScrap',
+              onPressed: () => {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => NewsPage(
+                              title: 'title',
+                              itemName: widget.items,
+                            )))
+              },
+            )
+          ],
           title: Text(widget.items),
-          // title: Container(
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.spaceAround,
-          //     children: [
-          //       Text(widget.logos),
-          //       Text(widget.items),
-          //       Text(widget.rates),
-          //     ],
-          //   ),
-          // ),
         ),
         body: SafeArea(
           child: Column(children: [
