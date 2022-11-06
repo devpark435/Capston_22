@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../asset/palette.dart';
 import '../screens/ChartPage.dart';
 
-var items = List<String>.generate(50, (i) => "ItemName $i");
+var items = List<String>.generate(50, (i) => "삼성");
 var logos = List<Widget>.generate(
     50, (i) => Image.asset('/Users/ryeol/Desktop/logoKakao.png'));
 var rates = List<String>.generate(50, (i) => "Rate $i");
@@ -82,7 +82,7 @@ class _ListPageState extends State<ListPage> {
                                           items: itemDatas,
                                           logos: logoDatas,
                                           rates: rateDatas,
-                                          prices : priceDatas)));
+                                          prices: priceDatas)));
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
