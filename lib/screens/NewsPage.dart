@@ -21,7 +21,6 @@ class _NewsPageState extends State<NewsPage> {
   // initialize WebScraper by passing base url of website
   final webScraper = WebScraper('https://www.mk.co.kr');
   late String keyWorld = widget.itemName;
-  String keyWorldTest = 'laptops';
   // Response of getElement is always List<Map<String, dynamic>>
   List<Map<String, dynamic>>? productNames;
   late List<Map<String, dynamic>> productDescriptions;
@@ -86,8 +85,9 @@ class _NewsPageState extends State<NewsPage> {
                                 InkWell(
                                   onTap: () {
                                     // uses UI Launcher to launch in web browser & minor tweaks to generate url
-                                    launch(webScraper.baseUrl! +
-                                        attributes['href']);
+                                    launch(Uri.encodeFull(
+                                        // webScraper.baseUrl! +
+                                        attributes['href']));
                                   },
                                   child: Text(
                                     'View Product',
