@@ -82,7 +82,7 @@ class _ListPageState extends State<ListPage> {
                                           items: itemDatas,
                                           logos: logoDatas,
                                           rates: rateDatas,
-                                          prices : priceDatas)));
+                                          prices: priceDatas)));
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
