@@ -70,34 +70,42 @@ class _NewsPageState extends State<NewsPage> {
                           .replaceAll('{title:', '');
                       var productNameText =
                           productSample!.replaceAll('attributes:  null}}', '');
-                      return ExpansionTile(
-                        title: Text('${productNameText}'),
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Column(
-                              children: <Widget>[
-                                Container(
-                                  child: Text('뉴스를 확인하려면 아래 버튼을 클릭하세요'),
-                                  margin: EdgeInsets.only(bottom: 10.0),
-                                  color: Palette.containerColor,
+                      return SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        child: Card(
+                          shadowColor: Palette.containerShadow,
+                          color: Palette.bgColor,
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('${productNameText}'),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Column(
+                                  children: <Widget>[
+                                    // Container(
+                                    //   child: Text(''),
+                                    // ),
+                                    InkWell(
+                                      onTap: () {
+                                        // uses UI Launcher to launch in web browser & minor tweaks to generate url
+                                        launch(Uri.encodeFull(
+                                            // webScraper.baseUrl! +
+                                            attributes['href']));
+                                      },
+                                      child: Text(
+                                        'View Product',
+                                        style: TextStyle(color: Colors.blue),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                InkWell(
-                                  onTap: () {
-                                    // uses UI Launcher to launch in web browser & minor tweaks to generate url
-                                    launch(Uri.encodeFull(
-                                        // webScraper.baseUrl! +
-                                        attributes['href']));
-                                  },
-                                  child: Text(
-                                    'View Product',
-                                    style: TextStyle(color: Colors.blue),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
+                              ),
+                            ],
+                          ),
+                        ),
                       );
                     })));
   }
