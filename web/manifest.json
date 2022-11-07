@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
     "name": "capston_22",
     "short_name": "capston_22",
+=======
+    "name": "stock_flutter_app",
+    "short_name": "stock_flutter_app",
+>>>>>>> 01d7c87 (Edit VScode Project)
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

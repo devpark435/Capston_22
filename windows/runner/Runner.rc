@@ -90,12 +90,21 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
+<<<<<<< HEAD
             VALUE "FileDescription", "capston_22" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "capston_22" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2022 com.example. All rights reserved." "\0"
             VALUE "OriginalFilename", "capston_22.exe" "\0"
             VALUE "ProductName", "capston_22" "\0"
+=======
+            VALUE "FileDescription", "stock_flutter_app" "\0"
+            VALUE "FileVersion", VERSION_AS_STRING "\0"
+            VALUE "InternalName", "stock_flutter_app" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2022 com.example. All rights reserved." "\0"
+            VALUE "OriginalFilename", "stock_flutter_app.exe" "\0"
+            VALUE "ProductName", "stock_flutter_app" "\0"
+>>>>>>> 01d7c87 (Edit VScode Project)
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

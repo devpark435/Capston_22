@@ -27,7 +27,11 @@ int APIENTRY wWinMain(_In_ HINSTANCE instance, _In_opt_ HINSTANCE prev,
   FlutterWindow window(project);
   Win32Window::Point origin(10, 10);
   Win32Window::Size size(1280, 720);
+<<<<<<< HEAD
   if (!window.CreateAndShow(L"capston_22", origin, size)) {
+=======
+  if (!window.CreateAndShow(L"stock_flutter_app", origin, size)) {
+>>>>>>> 01d7c87 (Edit VScode Project)
     return EXIT_FAILURE;
   }
   window.SetQuitOnClose(true);

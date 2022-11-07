@@ -1,7 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
     package="com.example.capston_22">
    <application
         android:label="capston_22"
+=======
+    package="com.example.stock_flutter_app">
+   <application
+        android:label="stock_flutter_app"
+>>>>>>> 01d7c87 (Edit VScode Project)
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

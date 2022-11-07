@@ -8,7 +8,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+<<<<<<< HEAD
 import 'package:capston_22/main.dart';
+=======
+import 'package:stock_flutter_app/main.dart';
+>>>>>>> 01d7c87 (Edit VScode Project)
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
