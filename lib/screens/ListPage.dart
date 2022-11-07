@@ -23,7 +23,7 @@ class _ListPageState extends State<ListPage> {
   Widget build(BuildContext context) {
     //MARK: DefaultTabController
     return DefaultTabController(
-      length: 3,
+      length: 2,
       child: Scaffold(
         //MARK: Custom AppBar
         appBar: AppBar(
