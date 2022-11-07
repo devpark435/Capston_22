@@ -217,10 +217,10 @@ class _SignupPage extends State<SignupPage> {
                               },
                               onError: (err) {
                                 // 에러 발생
-                                /* ScaffoldMessenger.of(context)
+                                ScaffoldMessenger.of(context)
                                     .showSnackBar(SnackBar(
                                   content: Text(err),
-                                )); */
+                                ));
                               },
                             );
                           },

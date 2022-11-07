@@ -156,10 +156,10 @@ class _LoginPage extends State<LoginPage> {
                                 },
                                 onError: (err) {
                                   // 에러 발생
-                                  /* ScaffoldMessenger.of(context)
+                                  ScaffoldMessenger.of(context)
                                       .showSnackBar(SnackBar(
                                     content: Text(err),
-                                  )); */
+                                  ));
                                 },
                               );
                             },
